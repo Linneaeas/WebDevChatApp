@@ -1,3 +1,23 @@
 1. HTML base
+2. Create styles.css, script.js, server.js
 2. npm init, npm i socket.io, npm i --save-dev nodemon
+3. Replace in package.json:  
+ "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  TO:
+   "scripts": {
+    "devStart": "nodemon server.js"
+  },
+
+  4. npm run devStart
+
+server.js(Server):
+  5. Create a server.
+  6. Create a function: Everytime someone connects to our server, it's gonna call this function and give each user it's own socket and using the socket, we're sending a message down to the client with this *event: chat-message.
+
+script.js(Client):
+  7. Create a socket variable and location where the server hosting the socket.
+  8. Create a function: When we recieve an *event, call the function with the data that we sent down from the server.
+
 
