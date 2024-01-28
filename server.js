@@ -21,7 +21,7 @@ io.on("connection", (socket) => {
       name: users[socket.id],
     }); //Create an function so our server knows how to handle what has been sent from the client. socket.broadcast.emit sending the message to every single person who is connected to that server except the person who sent the message.
   });
-  socket.on("disconnect", () => {
+  socket.on("disconnect", (name) => {
     socket.broadcast.emit("user-disconnected", users[socket.id]);
     delete users[socket.id];
   });
