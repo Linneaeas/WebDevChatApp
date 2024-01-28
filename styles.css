@@ -58,6 +58,6 @@ input:hover {
   align-items: center;
   gap: 1em;
 }
-.name {
-  color: blueviolet;
+.message-name {
+  color: rgba(19, 117, 208, 0.6);
 }
