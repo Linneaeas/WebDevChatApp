@@ -14,7 +14,7 @@
 
 server.js(Server):
   5. Create a server.
-  6. Create a function: Everytime someone connects to our server, it's gonna call this function and give each user it's own socket and using the socket, we're sending a message down to the client with this *event: chat-message.
+  6. Create a function: Everytime someone connects to our server, it's gonna give each user it's own socket and using the socket, we're sending a message down to the client with this *event: chat-message.
 
 script.js(Client):
   7. Create a socket variable and location where the server hosting the socket.
@@ -24,12 +24,63 @@ script.js(Client):
   9. Create Script to JS & Sockets using localhost + Create Script to our script.js file.
 
   10. ERROR CORS
+  install cors lib
     Added to work: const io = require("socket.io")(3000, {
   cors: {
     origin: "http://127.0.0.1:5500",
     methods: ["GET", "POST"],
   },
 });
-  
+
+DELETED 11. Server.js: Added a console.log to say new User when a new user has connected.
+
+Script.js: 
+12. Created a variable messageForm which we get from out html doc.
+13. Added a e.Prevent default: Whenever we submit our form, we wanna stop the form to submitting so the page dont refresh(in that case we would loose all our chatmessages)
+14. Created a variable for messageInput which we get from out html doc.
+15. Getting the value from the message input.
+16. Send information from the client to the server.
+17. Clear input field.
+
+server.js
+18. Create an function so our server knows how to handle what has been sent from the client. 
+19.  console.log(message); to make sure it works. Now we are recieving that message to the server. 
+
+20. Now we want to send the message to another client.
+21. socket.broadcast.emit sending the message to every single person who is connected to that server except the person who sent the message.
+
+script.js
+22. Creating/connecting our message container.
+23. Create function to append message to our html index file
+24. Create messagelement
+25. Setting value for our message element.
+26. Adding the messageElement to the messageContainer
+
+27. Creating functionality to get the users name using prompt
+28. Showing message when the user joins(to the user: You joined)
+29. Sending name to the server.
+
+server.js
+30. Functionality to recieve the name in the server.
+31. Creating users as an empty object(that will get the id of the individuals socket)
+32. Using the users socket id to become the object user, which will be the users name
+
+33. Creating a message to the existing members when someone joined.
+
+script.js
+34. Calling the function appendMessage when a user is connected and display a message 
 
 
+server.js
+35. Include name in the message users send
+
+
+script.js
+36. Modify socket.on chat message ot iclude name and message.
+socket.on"chat-message", (data) => 
+  appendMessage(`${data.name}: ${data.message}`);
+
+37. Modify the eventlistener to include the users own messages
+
+server.js
+38. Function to display if someone disconnects. 
