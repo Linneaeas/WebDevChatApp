@@ -20,4 +20,16 @@ script.js(Client):
   7. Create a socket variable and location where the server hosting the socket.
   8. Create a function: When we recieve an *event, call the function with the data that we sent down from the server.
 
+  index.html:
+  9. Create Script to JS & Sockets using localhost + Create Script to our script.js file.
+
+  10. ERROR CORS
+    Added to work: const io = require("socket.io")(3000, {
+  cors: {
+    origin: "http://127.0.0.1:5500",
+    methods: ["GET", "POST"],
+  },
+});
+  
+
 
