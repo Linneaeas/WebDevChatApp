@@ -1,4 +1,4 @@
-const socket = io("http://localhost:3000"); //Create socket variable and location where the server hosting the socket.
+const socket = io("http://192.168.0.12:3000"); //Create socket variable and location where the server hosting the socket.
 const messageContainer = document.getElementById("message-container"); //Creating/connecting our message container
 const messageForm = document.getElementById("send-container"); //Creating/connecting our form
 const messageInput = document.getElementById("message-input"); //Creating/connecting message input
